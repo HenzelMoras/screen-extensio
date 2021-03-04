@@ -6,10 +6,6 @@
 # refresh_rate
 # position
 # password
-echo
-    echo " ------proceeding further------ "
-    echo 
-    echo " the intel file for virtualheads exists continuing... "
     echo
     echo "/////////////////////////////////////////////"
     echo "//                                         //"

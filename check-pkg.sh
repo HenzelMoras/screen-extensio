@@ -33,6 +33,10 @@ check_pkg_exists
 
 if [ -e /usr/share/X11/xorg.conf.d/20-intel.conf ]
 then
+    echo " ------proceeding further------ "
+    echo 
+    echo " the intel file for virtualheads exists continuing... "
+    echo " running setup.sh "
     sudo ./setup.sh
 else
   cp 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
