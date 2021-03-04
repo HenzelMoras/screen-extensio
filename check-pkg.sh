@@ -21,7 +21,7 @@ check_pkg_exists(){
         if [ "" = "${pkg_check}" ]; then
             echo " Installing package please wait..."
             echo
-            sudo apt-get -y install $package
+            sudo apt -y install $package
             echo " installed: $package" 
         else
             echo "package already exists"
@@ -37,7 +37,7 @@ then
     echo 
     echo " running virtual monitor setup "
     
-    sudo ./setup.sh
+    sudo ./screen-extensio.sh
 else
   cp 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
   echo "[screen-extensio]" 
@@ -47,7 +47,7 @@ else
   echo "to finish setup then run setup.sh "
   
 fi
-echo -n " Enter Y to proceed: "
+echo -n " Enter Y/n to proceed: "
   read ans
   
 if [ "Y" == "${ans}" ]; then
