@@ -81,7 +81,7 @@ echo "Please enter the following details in your VNC app-"
 echo      "      1) IP Address: localhost "
 echo      "      2) VNC Password: "    
 echo      "      3) Port (optional): 5900"   
-echo "Execute 'Close VNC' to close vnc"
+echo "Run program 'Close VNC' to close vnc"
 
 EOL
 echo 
