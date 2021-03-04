@@ -130,9 +130,9 @@ EOL
 echo 
 
 # making scripts executable
-echo " Making scripts 'startvnc.sh' 'closevnc.sh' 'startvnc.desktop' 'closevnc.desktop' executable"
+echo " Making scripts 'startvnc.sh' 'closevnc.sh' 'startvnc.desktop' 'closevnc.desktop' 'uninstall.sh' executable"
 
-sudo chmod +x ~/.screen-extensio/startvnc.sh ~/.screen-extensio/closevnc.sh ~/.local/share/applications/startvnc.desktop ~/.local/share/applications/closevnc.desktop
+sudo chmod +x ~/.screen-extensio/startvnc.sh ~/.screen-extensio/closevnc.sh ~/.local/share/applications/startvnc.desktop ~/.local/share/applications/closevnc.desktop uninstall.sh
 
 echo 'application setup complete.'
 echo '++++ You can now run the program named "Start VNC" to start the vnc server! ++++'
