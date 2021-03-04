@@ -76,5 +76,19 @@ xrandr --output VIRTUAL1 --off
 
 EOL
 
+# creating desktop shortcut for startvnc.sh
+cat > ~/.local/share/applications/startvnc.desktop <<EOL
+'[Desktop Entry]',
+'Encoding=UTF-8',
+'Version=1.0',
+'Type=Application',
+'Terminal=true',
+f'Exec={userpath}/.screen-extensio/startvnc.sh',
+'Name=Start VNC',
+'Icon=cs-screen'
+
+EOL
+
+
 
 
