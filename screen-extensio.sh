@@ -47,8 +47,12 @@ echo
 echo "Saving your password..."
 x11vnc -storepasswd ${password} ~/.vnc/password
 
+# create app folder
+mkdir ~/.screen-extensio
 
-
+# create app start executable
+cat > ~/.screen-extensio/startvnc.sh <<EOL
+#!/bin/bash
 xrandr --newmode ${modeline}
 xrandr --addmode VIRTUAL1 ${resolution}
 xrandr --output VIRTUAL1 --mode ${resolution} ${positions[${position}]} ${current_output}
@@ -60,3 +64,17 @@ echo "Please enter the following details in your VNC app-"
 echo      "      1) IP Address: localhost "
 echo      "      2) VNC Password: "    
 echo      "      3) Port (optional): 5900"   
+echo "Execute 'Close VNC' to close vnc"
+
+EOL
+
+# creat app close executable
+cat > ~/.screen-extensio/closevnc.sh <<EOL
+#!/bin/bash
+killall x11vnc
+xrandr --output VIRTUAL1 --off
+
+EOL
+
+
+
