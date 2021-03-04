@@ -41,16 +41,19 @@ current_output=$(xrandr --listmonitors | awk '{print $4}'| awk 'NR==2{print $1}'
 
 echo "Creating folder for 'vnc'.."
 mkdir ~/.vnc
-
 echo
 
 echo "Saving your password..."
 x11vnc -storepasswd ${password} ~/.vnc/password
 
 # create app folder
+echo "creating folder '~/.screen-extensio'"
 mkdir ~/.screen-extensio
+echo
 
 # create app start executable
+echo"creating startvnc executable '~/.screen-extensio/startvnc.sh'" 
+
 cat > ~/.screen-extensio/startvnc.sh <<EOL
 #!/bin/bash
 xrandr --newmode ${modeline}
@@ -67,16 +70,22 @@ echo      "      3) Port (optional): 5900"
 echo "Execute 'Close VNC' to close vnc"
 
 EOL
+echo 
 
 # creat app close executable
+echo "creating close vnc executable '~/.screen-extensio/closevnc.sh'"
+
 cat > ~/.screen-extensio/closevnc.sh <<EOL
 #!/bin/bash
 killall x11vnc
 xrandr --output VIRTUAL1 --off
 
 EOL
+echo 
 
 # creating desktop shortcut for startvnc.sh
+echo "creating startvnc shortcut '~/.local/share/applications/startvnc.desktop'"
+
 cat > ~/.local/share/applications/startvnc.desktop <<EOL
 '[Desktop Entry]',
 'Encoding=UTF-8',
@@ -88,7 +97,25 @@ f'Exec={userpath}/.screen-extensio/startvnc.sh',
 'Icon=cs-screen'
 
 EOL
+echo
+
+# creating closevnc shortcut
+echo "creating closevnc shortcut '~/.local/share/applications/closevnc.desktop'"
+
+cat > ~/.local/share/applications/closevnc.desktop <<EOL
+'[Desktop Entry]',
+'Encoding=UTF-8',
+'Version=1.0',
+'Type=Application',
+'Terminal=true',
+f'Exec={userpath}/.screen-extensio/closevnc.sh',
+'Name=Close VNC',
+'Icon=cs-screen'
+
+EOL
+echo 
 
 
 
+ 
 
