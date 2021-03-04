@@ -120,5 +120,9 @@ echo " Making scripts 'startvnc.sh' 'closevnc.sh' 'startvnc.desktop' 'closevnc.d
 
 sudo chmod +x ~/.screen-extensio/startvnc.sh ~/.screen-extensio/closevnc.sh ~/.local/share/applications/startvnc.desktop ~/.local/share/applications/closevnc.desktop
 
- 
+echo 'application setup complete.'
+echo '++++ You can now run the program named "Start VNC" to start the vnc server! ++++'
+echo '!!! note that you have to connect your android device and enable usb-debugging before continuing...' 
+echo 'Make sure that both the devices are connected to the same network! Please enable USB-Tethering for faster performance...!!!' 
+echo "---- You can stop the vnc by running the program 'Close VNC'! ----" 
 
