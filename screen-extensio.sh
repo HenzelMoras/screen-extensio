@@ -14,7 +14,7 @@ while true; do
     while true; do
         read -sp 'Password: ' password
         echo 
-        read -sp 'Confirm password: ' confirm_pass
+        read -sp "Choose the position of your new monitor (0 for right, 1 for left, 2 for bottom, 3 for top): " confirm_pass
         echo 
         if [ ${password} != ${confirm_pass} ]; then
            echo " xxxx Password doesnt match xxxx "
@@ -32,3 +32,31 @@ while true; do
         continue
     fi
 done
+
+modeline=$(gtf ${width} ${height} ${refresh_rate} | grep -E "Modeline")
+resolution=$(echo $modeline | grep -o ""${width}x${height}_${refresh_rate}.00"")
+positions=['--right-of' '--left-of' '--below' '--top']
+current_output=$(xrandr --listmonitors | awk '{print $4}'| awk 'NR==2{print $1}')
+
+
+echo "Creating folder for 'vnc'.."
+mkdir ~/.vnc
+
+echo
+
+echo "Saving your password..."
+x11vnc -storepasswd ${password} ~/.vnc/password
+
+
+
+xrandr --newmode ${modeline}
+xrandr --addmode VIRTUAL1 ${resolution}
+xrandr --output VIRTUAL1 --mode ${resolution} ${positions[${position}]} ${current_output}
+adb reverse tcp:5900 tcp:5900
+
+x11vnc -usepw -clip ${width}+${height}+0+0
+
+echo "Please enter the following details in your VNC app-"    
+echo      "      1) IP Address: localhost "
+echo      "      2) VNC Password: "    
+echo      "      3) Port (optional): 5900"   
