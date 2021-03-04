@@ -24,9 +24,30 @@ check_pkg_exists(){
             sudo apt-get -y install $package
             echo " installed: $package" 
         else
-            echo "package already exists continuing"
+            echo "package already exists"
         fi
     done
 
 }
 check_pkg_exists
+
+source vdl-monitor.conf
+if [ -e /usr/share/X11/xorg.conf.d/20-intel.conf ]
+then
+    echo " the intel file for virtualheads exists "
+    echo 
+    echo " running virtual monitor setup "
+    
+    sudo ./setup.sh
+else
+  cp 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
+  echo "[screen-extensio]" 
+  echo "-------------You must" 
+  echo "---------------------reboot or relogin" 
+  echo "-------------current session" 
+  echo "to finish setup then run setup.sh "
+  
+fi
+
+    
+
