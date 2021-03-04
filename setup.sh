@@ -10,11 +10,11 @@ while true; do
     read -p 'width: ' width
     read -p 'height: ' height
     read -p 'refresh_rate: ' refresh_rate
-    read -p 'position: ' position
+    read -p 'Choose the position of your new monitor (0 for right, 1 for left, 2 for bottom, 3 for top):  ' position
     while true; do
         read -sp 'Password: ' password
         echo 
-        read -sp "Choose the position of your new monitor (0 for right, 1 for left, 2 for bottom, 3 for top): " confirm_pass
+        read -sp "Confirm Password: " confirm_pass
         echo 
         if [ ${password} != ${confirm_pass} ]; then
            echo " xxxx Password doesnt match xxxx "
