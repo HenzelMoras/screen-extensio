@@ -31,7 +31,6 @@ check_pkg_exists(){
 }
 check_pkg_exists
 
-source vdl-monitor.conf
 if [ -e /usr/share/X11/xorg.conf.d/20-intel.conf ]
 then
     echo " the intel file for virtualheads exists "
@@ -48,6 +47,15 @@ else
   echo "to finish setup then run setup.sh "
   
 fi
-
+echo -n " Enter Y to proceed: "
+  read ans
+  
+if [ "Y" == "${ans}" ]; then
+   echo " ...rebooting... "
+   sudo reboot now
+   else
+      echo " exiting"
+      exit
+  fi
     
 
