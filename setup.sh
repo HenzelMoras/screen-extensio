@@ -66,8 +66,8 @@ mkdir ~/.screen-extensio
 echo
 
 # create app start executable
-echo"creating startvnc executable '~/.screen-extensio/startvnc.sh'" 
-
+echo "creating startvnc executable '~/.screen-extensio/startvnc.sh'" 
+touch ~/.screen-extensio/startvnc.sh
 cat > ~/.screen-extensio/startvnc.sh <<EOL
 #!/bin/bash
 xrandr --newmode ${modeline}
@@ -101,14 +101,14 @@ echo
 echo "creating startvnc shortcut '~/.local/share/applications/startvnc.desktop'"
 
 cat > ~/.local/share/applications/startvnc.desktop <<EOL
-'[Desktop Entry]',
-'Encoding=UTF-8',
-'Version=1.0',
-'Type=Application',
-'Terminal=true',
-f'Exec={userpath}/.screen-extensio/startvnc.sh',
-'Name=Start VNC',
-'Icon=cs-screen'
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=true
+Exec=~/.screen-extensio/startvnc.sh
+Name=Start VNC
+Icon=cs-screen
 
 EOL
 echo
@@ -117,14 +117,14 @@ echo
 echo "creating closevnc shortcut '~/.local/share/applications/closevnc.desktop'"
 
 cat > ~/.local/share/applications/closevnc.desktop <<EOL
-'[Desktop Entry]',
-'Encoding=UTF-8',
-'Version=1.0',
-'Type=Application',
-'Terminal=true',
-f'Exec={userpath}/.screen-extensio/closevnc.sh',
-'Name=Close VNC',
-'Icon=cs-screen'
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=true
+Exec=~/.screen-extensio/closevnc.sh
+Name=Close VNC
+Icon=cs-screen
 
 EOL
 echo 
@@ -136,7 +136,9 @@ sudo chmod +x ~/.screen-extensio/startvnc.sh ~/.screen-extensio/closevnc.sh ~/.l
 
 echo 'application setup complete.'
 echo '++++ You can now run the program named "Start VNC" to start the vnc server! ++++'
+echo
 echo '!!! note that you have to connect your android device and enable usb-debugging before continuing...' 
 echo 'Make sure that both the devices are connected to the same network! Please enable USB-Tethering for faster performance...!!!' 
+echo
 echo "---- You can stop the vnc by running the program 'Close VNC'! ----" 
 
