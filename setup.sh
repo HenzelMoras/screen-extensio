@@ -115,7 +115,10 @@ f'Exec={userpath}/.screen-extensio/closevnc.sh',
 EOL
 echo 
 
+# making scripts executable
+echo " Making scripts 'startvnc.sh' 'closevnc.sh' 'startvnc.desktop' 'closevnc.desktop' executable"
 
+sudo chmod +x ~/.screen-extensio/startvnc.sh ~/.screen-extensio/closevnc.sh ~/.local/share/applications/startvnc.desktop ~/.local/share/applications/closevnc.desktop
 
  
 
