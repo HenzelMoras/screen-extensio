@@ -7,8 +7,8 @@
 # position
 # password
 while true; do
-    read -p 'width: ' width
-    read -p 'height: ' height
+    read -p 'Display width: ' width
+    read -p 'Display height: ' height
     read -p 'refresh_rate: ' refresh_rate
     read -p 'Choose the position of your new monitor (0 for right, 1 for left, 2 for bottom, 3 for top):  ' position
     while true; do
