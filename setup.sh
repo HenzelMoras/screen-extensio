@@ -6,6 +6,18 @@
 # refresh_rate
 # position
 # password
+echo
+    echo " ------proceeding further------ "
+    echo 
+    echo " the intel file for virtualheads exists continuing... "
+    echo
+    echo "/////////////////////////////////////////////"
+    echo "//                                         //"
+    echo "//     running screen-extensio setup       //"
+    echo "//                                        //"
+    echo "///////////////////////////////////////////"
+    echo 
+    
 while true; do
     read -p 'Display width: ' width
     read -p 'Display height: ' height
