@@ -16,7 +16,7 @@ check_pkg_exists(){
     do
         pkg_check=$(dpkg --list | grep -o "$package")
         echo      # newline 
-        echo ".....checking whether package is installed: $package....."
+        echo ".....checking package : $package....."
         
         if [ "" = "${pkg_check}" ]; then
             echo " Installing package please wait..."
@@ -33,22 +33,26 @@ check_pkg_exists
 
 if [ -e /usr/share/X11/xorg.conf.d/20-intel.conf ]
 then
+    echo
+    echo " ------proceeding further------ "
     echo " the intel file for virtualheads exists "
     echo 
     echo " running virtual monitor setup "
+    echo
     
-    sudo ./screen-extensio.sh
+    sudo ./setup.sh
 else
   cp 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
+  echo 
   echo "[screen-extensio]" 
   echo "-------------You must" 
   echo "---------------------reboot or relogin" 
   echo "-------------current session" 
-  echo "to finish setup then run setup.sh "
+  echo "to finish setup run screen-extensio.sh "
   
 fi
-echo -n " Enter Y/n to proceed: "
-  read ans
+echo
+read -p " Enter Y/n to proceed: " ans
   
 if [ "Y" == "${ans}" ]; then
    echo " ...rebooting... "
