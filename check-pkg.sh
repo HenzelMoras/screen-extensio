@@ -1,9 +1,10 @@
 #! /bin/bash
 
 # 1. istall necessary packages
+echo
 echo " updating sysytem package list"
 echo
-echo "   ----------   " 
+echo  
 sudo apt update -y
 
 echo 
@@ -33,11 +34,16 @@ check_pkg_exists
 
 if [ -e /usr/share/X11/xorg.conf.d/20-intel.conf ]
 then
-    echo " ------proceeding further------ "
-    echo 
+    echo
+    echo "++++++++++++++++++++++++++++++"
+    echo " +++++proceeding further+++++ "
+    echo "++++++++++++++++++++++++++++++"
+    echo
     echo " the intel file for virtualheads exists continuing... "
+    echo
+    echo "------------------------"
     echo " running setup.sh "
-    sudo ./setup.sh
+    echo "------------------------"
 else
   cp 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
   echo 
@@ -46,17 +52,18 @@ else
   echo "---------------------reboot or relogin" 
   echo "-------------current session" 
   echo "to finish setup run screen-extensio.sh "
+  read -p " Enter Y/n to proceed: " ans
   
-fi
-echo
-read -p " Enter Y/n to proceed: " ans
-  
-if [ "Y" == "${ans}" ]; then
-   echo " ...rebooting... "
-   sudo reboot now
-   else
+  if [ "Y" == "${ans}" ]; then
+     echo " ...rebooting... "
+     sudo reboot now
+  else
       echo " exiting"
       exit
   fi
+  
+fi
+echo
+
     
 

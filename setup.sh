@@ -9,11 +9,17 @@
     echo
     echo "/////////////////////////////////////////////"
     echo "//                                         //"
-    echo "//     running screen-extensio setup       //"
+    echo "//          screen-extensio                //"
     echo "//                                        //"
     echo "///////////////////////////////////////////"
     echo 
-    
+
+echo "-----------------------"
+echo " Running check-pkg.sh "
+echo "-----------------------"
+sudo ./check-pkg.sh
+echo 
+
 while true; do
     read -p 'Display width: ' width
     read -p 'Display height: ' height
