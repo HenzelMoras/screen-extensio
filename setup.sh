@@ -47,8 +47,8 @@ while true; do
     fi
 done
 
-modeline=$(gtf ${width} ${height} ${refresh_rate} | grep -E "Modeline")
-resolution=$(echo $modeline | grep -o ""${width}x${height}_${refresh_rate}.00"")
+modeline=$(gtf ${width} ${height} ${refresh_rate} | sed -n '3 p'| sed 's/  Modeline//')
+resolution=${width}x${height}_${refresh_rate}.00
 positions=('--right-of' '--left-of' '--below' '--top')
 current_output=$(xrandr --listmonitors | awk '{print $4}'| awk 'NR==2{print $1}')
 user_path=/home/$(whoami)
@@ -75,7 +75,7 @@ xrandr --addmode VIRTUAL1 ${resolution}
 xrandr --output VIRTUAL1 --mode ${resolution} ${positions[${position}]} ${current_output}
 adb reverse tcp:5900 tcp:5900
 
-x11vnc -usepw -clip ${width}+${height}+0+0
+x11vnc -usepw -clip ${width}x${height}+0+0
 
 echo "Please enter the following details in your VNC app-"    
 echo      "      1) IP Address: localhost "
@@ -91,8 +91,11 @@ echo "creating close vnc executable '~/.screen-extensio/closevnc.sh'"
 
 cat > ~/.screen-extensio/closevnc.sh <<EOL
 #!/bin/bash
+adb kill-server
 killall x11vnc
 xrandr --output VIRTUAL1 --off
+xrandr --delmode VIRTUAL1 "${width}x${height}_${refresh_rate}.00"
+xrandr --rmmode "${width}x${height}_${refresh_rate}.00"
 
 EOL
 echo 
