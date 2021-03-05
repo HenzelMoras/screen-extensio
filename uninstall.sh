@@ -6,7 +6,7 @@ if [ $x = 'y' ]; then
   rm ~/.local/share/applications/startvnc.desktop > /dev/null 2>&1
   rm ~/.local/share/applications/closevnc.desktop > /dev/null 2>&1
   rm -r ~/.vnc > /dev/null 2>&1
-  rm /usr/share/X11/xorg.conf.d/20-intel.conf
+  sudo rm /usr/share/X11/xorg.conf.d/20-intel.conf
   echo 'Uninstalled successfully!'
 else
   echo 'Uninstall was aborted.'

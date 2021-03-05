@@ -49,9 +49,9 @@ done
 
 modeline=$(gtf ${width} ${height} ${refresh_rate} | grep -E "Modeline")
 resolution=$(echo $modeline | grep -o ""${width}x${height}_${refresh_rate}.00"")
-positions=['--right-of' '--left-of' '--below' '--top']
+positions=('--right-of' '--left-of' '--below' '--top')
 current_output=$(xrandr --listmonitors | awk '{print $4}'| awk 'NR==2{print $1}')
-
+user_path=/home/$(whoami)
 
 echo "Creating folder for 'vnc'.."
 mkdir ~/.vnc
@@ -106,7 +106,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=true
-Exec=~/.screen-extensio/startvnc.sh
+Exec=${user_path}/.screen-extensio/startvnc.sh
 Name=Start VNC
 Icon=cs-screen
 
@@ -122,7 +122,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=true
-Exec=~/.screen-extensio/closevnc.sh
+Exec=${user_path}/.screen-extensio/closevnc.sh
 Name=Close VNC
 Icon=cs-screen
 
