@@ -1,3 +1,3 @@
 # screen-extensio
 ![check-pkgs]
-(/images/check-req-pkg.jpeg)
+(/screen-extensio/images/check-req-pkg.jpeg)
