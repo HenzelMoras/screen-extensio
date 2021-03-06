@@ -1,2 +1,2 @@
 # screen-extensio
-check-req-pkg.jpeg
+(images/check-req-pkg.jpeg)
