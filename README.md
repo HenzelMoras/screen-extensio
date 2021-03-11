@@ -21,5 +21,5 @@ chmod u+x uninstall.sh
 ./uninstall.sh
 ```
 thanks to :wink: @Prayag2 @santiagofdezg whos repo was used to create this 
-![santiago](https://github.com/santiagofdezg/linux-extend-screen)
-![prayag2](https://github.com/Prayag2/android-as-monitor-linux)
+[linux-extend-screen](https://github.com/santiagofdezg/linux-extend-screen)
+[android-as-monitor-linux](https://github.com/Prayag2/android-as-monitor-linux)
